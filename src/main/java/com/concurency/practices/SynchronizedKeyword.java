@@ -5,7 +5,7 @@ public class SynchronizedKeyword {
     // easiest way to fix multiple thread using same variable by using AtomicInteger class
     private int count = 0;
 
-    // other thread need to wait for in transit log by synchronized
+    // other thread need to wait for Intrinsic Lock by synchronized
     public synchronized void increment() {
         count++;
     }
