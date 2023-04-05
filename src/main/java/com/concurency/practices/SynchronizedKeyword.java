@@ -10,14 +10,10 @@ public class SynchronizedKeyword {
         count++;
     }
 
-    public static void main(String[] args) {
-        SynchronizedKeyword synchronizedKeyword = new SynchronizedKeyword();
-        synchronizedKeyword.work();
-    }
-
     public void work() {
         Thread thread1 = new Thread(() -> {
             for (int i = 0; i < 10000; i ++) {
+                System.out.println("Thread1: " + i);
                 increment();
                 // count++ is 3 steps
                 // count = count + 1;
@@ -27,6 +23,7 @@ public class SynchronizedKeyword {
 
         Thread thread2 = new Thread(() -> {
             for (int i = 0; i < 10000; i ++) {
+                System.out.println("Thread2: " + i);
                 increment();
             }
         });
@@ -43,6 +40,11 @@ public class SynchronizedKeyword {
         }
 
         System.out.println("Count is: " + count);
+    }
+
+    public static void main(String[] args) {
+        SynchronizedKeyword synchronizedKeyword = new SynchronizedKeyword();
+        synchronizedKeyword.work();
     }
 
 }

@@ -10,8 +10,9 @@ class Processor extends Thread {
     // not expected other thread will modify running this thread
     public void run() {
 
+        int i = 0;
         while(running) {
-            System.out.println("Hello");
+            System.out.println("Hello" + (i += 1));
 
             try {
                 Thread.sleep(100);
@@ -26,7 +27,7 @@ class Processor extends Thread {
     }
 }
 
-public class ThreadSynchronization {
+public class  ThreadSynchronization {
 
     /**
      * Two threading running here. Main is one thread and other thread is
