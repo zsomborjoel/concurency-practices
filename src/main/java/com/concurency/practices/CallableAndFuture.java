@@ -13,6 +13,7 @@ public class CallableAndFuture {
             Random random = new Random();
             int duration = random.nextInt(4000);
 
+            // To show that handles exception
             if (duration > 2000) {
                 throw new RuntimeException("Sleeping for too long");
             }
@@ -32,6 +33,7 @@ public class CallableAndFuture {
 
         executor.shutdown();
 
+        // Exception from Callable catched here
         try {
             System.out.println("Result: " + future.get());
         } catch (InterruptedException e) {
