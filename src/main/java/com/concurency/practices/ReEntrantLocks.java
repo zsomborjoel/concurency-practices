@@ -60,11 +60,11 @@ public class ReEntrantLocks {
 
     public static void main(String[] args) throws InterruptedException {
 
-        final Runner runner = new Runner();
+        final Runner3 runner3 = new Runner3();
 
         Thread t1 = new Thread(() -> {
             try {
-                runner.firstThread();
+                runner3.firstThread();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -72,7 +72,7 @@ public class ReEntrantLocks {
 
         Thread t2 = new Thread(() -> {
             try {
-                runner.secondThread();
+                runner3.secondThread();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -83,7 +83,7 @@ public class ReEntrantLocks {
 
         t1.join();
         t2.join();
-        runner.finished();
+        runner3.finished();
     }
 
 }
